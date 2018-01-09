@@ -1,11 +1,11 @@
 /*jslint browser:true */
-import chance from "chance.min.js";
 document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
 function saveIssue(e) {
     "use strict";        
 var issueDesc = document.querySelector("#issueDescInput").value,
     issueSeverity = document.querySelector("#issueSeverityInput").value,
     issueAssignedTo = document.querySelector("#issueAssignedToInput").value,
+    chance = new Chance(Math.random),
     issueId = chance.guid(),
     issueStatus = "Open",
     issues = [],
