@@ -1,4 +1,5 @@
 /*jslint browser:true */
+import chance from "chance.min.js";
 document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
 function saveIssue(e) {
     "use strict";        
