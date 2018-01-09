@@ -7,6 +7,7 @@ var issueList = document.querySelector('#issueList');
 
     issueList.innerHTML = " ";
 
+if(issues !== null) {
     for(i = 0; i < issues.length; i++) {
     var id = issues[i].id,
         desc = issues[i].description,
@@ -23,6 +24,10 @@ var issueList = document.querySelector('#issueList');
                         "<a href='#' onclick='setStatusClosed(\'"+id+"\')' class='btn btn-warning'>Close</a>" +
                         "<a href='#' onclick='deleteIssue(\'"+id+"\')' class='btn btn-danger'>Delete</a>" +
                         "</div>";
+}
+console.log(issues);
+} else {
+issueList.innerHTML = "<h6 class='text-center'>There are no issues at present</h6>";    
 }
 }
 function saveIssue(e) {
@@ -41,17 +46,25 @@ var issueDesc = document.querySelector("#issueDescInput").value,
 	assignedTo: issueAssignedTo,
 	status: issueStatus
 };
+//Check if entry already there
 if(localStorage.getItem("issues") === null) {
+//Push the issue object to issues array
 issues.push(issue);
+//Set the new issues array as a converted JSON object to localStorage
 localStorage.setItem("issues", JSON.stringify(issues));
-console.log("No issues");
 } else {
+//Request the issues object and convert to array
 issues = JSON.parse(localStorage.getItem("issues"));
+//Push new object to issues array
 issues.push(issue);
+//Set the new issues array as a converted JSON object to localStorage
 localStorage.setItem("issues", JSON.stringify(issues));
 }
+//Reset submit element
 document.querySelector("#issueInputForm").reset();
+//Run fetchIssue to reflect the new item
 fetchIssues();
+//Stop default submit
 e.preventDefault();
 }
 document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
