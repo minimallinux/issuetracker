@@ -1,5 +1,30 @@
 /*jslint browser:true */
-document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
+function fetchIssues() {
+     "use strict";       
+var i = 0;
+var issues = JSON.parse(localStorage.getItem("issues"));
+var issueList = document.querySelector('#issueList');
+
+    issueList.innerHTML = " ";
+
+    for(i = 0; i < issues.length; i++) {
+    var id = issues[i].id,
+        desc = issues[i].description,
+        severity = issues[i].severity,
+        assignedTo = issues[i].assignedTo,
+        status = issues[i].status;
+        
+        issueList.innerHTML += "<div class='well'>" +
+                        "<h6>Issue ID: " + id + "</h6>" +
+                        "<p><span class='Label label-info'>" + status + "</span></p>" +
+                        "<h3>" + desc + "</h3>" +
+                        "<p><span class='glyphicon glyphicon-time'></span>" + severity + "</p>" +
+                        "<p><span class='glyphicon glyphicon-user'></span>" + assignedTo + "</p>" +
+                        "<a href='#' onclick='setStatusClosed(\'"+id+"\')' class='btn btn-warning'>Close</a>" +
+                        "<a href='#' onclick='deleteIssue(\'"+id+"\')' class='btn btn-danger'>Delete</a>" +
+                        "</div>";
+}
+}
 function saveIssue(e) {
     "use strict";        
 var issueDesc = document.querySelector("#issueDescInput").value,
@@ -29,35 +54,4 @@ document.querySelector("#issueInputForm").reset();
 fetchIssues();
 e.preventDefault();
 }
-function fetchIssues() {
-     "use strict";       
-var i,
-    issueList = document.querySelector("#issueList").innerHTML = '',
-    issueAssignedTo = document.querySelector("#issueAssignedToInput").value,
-    assignedTo = issueAssignedTo,
-    issues = JSON.parse(localStorage.getItem("issues")),	
-    issuesListed = document.querySelector("#issueList");
-    if(issues) {
-    for(i = 0; i < issues.length; i++) {
-    console.log(issues);
-    var id = issues[i].id,
-    desc = issues.description,
-    severity = issues[i].severity,
-    status = issues[i].status;
-    issueList.innerHTML += "<div class='well'>" +
-                        "<h6>Issue ID: " + id + "</h6>" +
-                        "<p><span class='Label label-info'>" + status + "</span></p>" +
-                        "<h3>" + desc + "</h3>" +
-                        "<p><span class='glyphicon glyphicon-time'></span>" + severity + "</p>" +
-                        "<p><span class='glyphicon glyphicon-user'></span>" + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed(\'"+id+"\')' class='btn btn-warning'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(\'"+id+"\')' class='btn btn-danger'>Delete</a>" +
-                        "</div>";
-
-
-}
-} else {
-     
-console.log(issuesListed,"No Issues Listed");     
-}
-}
+document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
