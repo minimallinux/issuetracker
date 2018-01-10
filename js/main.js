@@ -21,8 +21,8 @@ if(issues !== null) {
                         "<h3>" + desc + "</h3>" +
                         "<p><span class='glyphicon glyphicon-time'></span>" + severity + "</p>" +
                         "<p><span class='glyphicon glyphicon-user'></span>" + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed(\'"+id+"\')' class='btn btn-warning'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(\'"+id+"\')' class='btn btn-danger'>Delete</a>" +
+                        "<a href='#' onclick='setStatusClosed("+ id +")' class='btn btn-warning'>Close</a>" +
+                        "<a href='#' onclick='deleteIssue(" + id + ")' class='btn btn-danger'>Delete</a>" +
                         "</div>";
 }
 console.log(issues);
@@ -31,13 +31,13 @@ issueList.innerHTML = "<h6 class='text-center'>There are no issues at present</h
 }
 }
 function saveIssue(e) {
-    "use strict";        
+    "use strict";
+var chance = new Chance();
 var issueDesc = document.querySelector("#issueDescInput").value,
     issueSeverity = document.querySelector("#issueSeverityInput").value,
     issueAssignedTo = document.querySelector("#issueAssignedToInput").value,
-    chance = new Chance(Math.random),
-    issueId = chance.guid(),
     issueStatus = "Open",
+    issueId = chance.guid(),
     issues = [],
     issue = {
 	id: issueId,
@@ -68,3 +68,14 @@ fetchIssues();
 e.preventDefault();
 }
 document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
+function setStatusClosed(id) {
+var i;
+var issues = JSON.parse(localStorage.getItem("issues"));
+for(i = 0; i < issues.length; i++) {
+    if(issues[i].id == id) {
+        issues.status = "Closed";
+    }
+}
+localStorage.setItem("issues", JSON.stringify(issues));
+fetchIssues();
+}
