@@ -1,4 +1,6 @@
 /*jslint browser:true */
+
+//Fetch submitted issues or the status of localStorage
 function fetchIssues() {
      "use strict";       
 var i = 0;
@@ -30,13 +32,15 @@ console.log(issues);
 issueList.innerHTML = "<h6 class='text-center'>There are no issues at present</h6>";    
 }
 }
+
+//Save a submitted issue
 function saveIssue(e) {
     "use strict";
-var chance = new Chance();
-var issueDesc = document.querySelector("#issueDescInput").value,
+ var issueDesc = document.querySelector("#issueDescInput").value,
     issueSeverity = document.querySelector("#issueSeverityInput").value,
     issueAssignedTo = document.querySelector("#issueAssignedToInput").value,
     issueStatus = "Open",
+    chance = new Chance(),
     issueId = chance.guid(),
     issues = [],
     issue = {
@@ -67,7 +71,10 @@ fetchIssues();
 //Stop default submit
 e.preventDefault();
 }
+//Submit event for the saveIssue function
 document.querySelector("#issueInputForm").addEventListener("submit", saveIssue);
+
+//Set the issue status to closed
 function setStatusClosed(id) {
 var i;
 var issues = JSON.parse(localStorage.getItem("issues"));

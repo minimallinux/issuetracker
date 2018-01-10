@@ -1,0 +1,20 @@
+{
+  "name": "issuetracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minimallinux/issuetracker.git"
+  },
+  "keywords": [],
+  "author": "P A McGowan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/minimallinux/issuetracker/issues"
+  },
+  "homepage": "https://github.com/minimallinux/issuetracker#readme"
+}
