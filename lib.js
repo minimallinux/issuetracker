@@ -1,7 +1,5 @@
-/*jslint browser:true */
-
 //Fetch submitted issues or the status of localStorage
-function fetchIssues() {
+window.onload = function fetchIssues() {
      "use strict";       
 var i = 0;
 var issues = JSON.parse(localStorage.getItem("issues"));
@@ -21,8 +19,8 @@ if(issues !== null) {
                         "<h6>Issue ID: " + id + "</h6>" +
                         "<p><span class='Label label-info'>" + status + "</span></p>" +
                         "<h3>" + desc + "</h3>" +
-                        "<p><span class='glyphicon glyphicon-time'></span>" + severity + "</p>" +
-                        "<p><span class='glyphicon glyphicon-user'></span>" + assignedTo + "</p>" +
+                        "<p><span class='glyphicon glyphicon-time'></span> " + severity + "</p>" +
+                        "<p><span class='glyphicon glyphicon-user'></span> " + assignedTo + "</p>" +
                         "<a href='#' onclick='setStatusClosed("+ id +")' class='btn btn-warning'>Close</a>" +
                         "<a href='#' onclick='deleteIssue(" + id + ")' class='btn btn-danger'>Delete</a>" +
                         "</div>";
@@ -31,7 +29,7 @@ console.log(issues);
 } else {
 issueList.innerHTML = "<h6 class='text-center'>There are no issues at present</h6>";    
 }
-}
+};
 
 //Save a submitted issue
 function saveIssue(e) {
@@ -40,7 +38,6 @@ function saveIssue(e) {
     issueSeverity = document.querySelector("#issueSeverityInput").value,
     issueAssignedTo = document.querySelector("#issueAssignedToInput").value,
     issueStatus = "Open",
-    chance = new Chance(),
     issueId = chance.guid(),
     issues = [],
     issue = {

@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/minimallinux/issuetracker/issues"
   },
-  "homepage": "https://github.com/minimallinux/issuetracker#readme"
+  "homepage": "https://github.com/minimallinux/issuetracker#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chance": "^1.0.13",
+    "jquery": "^3.2.1"
+  }
 }
