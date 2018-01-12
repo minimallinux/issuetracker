@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({20:[function(require,module,exports) {
+})({15:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],21:[function(require,module,exports) {
+},{}],16:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,14 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],22:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],15:[function(require,module,exports) {
+},{}],14:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":15}],14:[function(require,module,exports) {
+},{"base64-js":15,"ieee754":16,"isarray":17,"buffer":14}],13:[function(require,module,exports) {
 var Buffer = require("buffer").Buffer;
 //  Chance.js 1.0.13
 //  http://chancejs.com
@@ -9453,7 +9453,7 @@ var Buffer = require("buffer").Buffer;
     }
 })();
 
-},{"buffer":15}],13:[function(require,module,exports) {
+},{"buffer":14}],11:[function(require,module,exports) {
 //Fetch submitted issues or the status of localStorage
 function fetchIssues() {
      "use strict";       
@@ -9540,16 +9540,13 @@ for(i = 0; i < issues.length; i++) {
 localStorage.setItem("issues", JSON.stringify(issues));
 fetchIssues();
 }
-},{}],8:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 var Chance = require('chance');
 var chance = new Chance();
 var lib = require('./lib');
-function hello() {
-document.querySelector('#test').innerHTML = "Testing Index.js"; 
-}
-hello();
 
-},{"chance":14,"./lib":13}],0:[function(require,module,exports) {
+
+},{"chance":13,"./lib":11}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -9567,7 +9564,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':41643/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':37496/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -9668,4 +9665,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,8])
+},{}]},{},[0,3])
