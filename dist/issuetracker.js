@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({13:[function(require,module,exports) {
+})({20:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],14:[function(require,module,exports) {
+},{}],21:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,14 +271,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],15:[function(require,module,exports) {
+},{}],22:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],12:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 
 var global = (1,eval)("this");
 /*!
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":13,"ieee754":14,"isarray":15,"buffer":12}],11:[function(require,module,exports) {
+},{"base64-js":20,"ieee754":21,"isarray":22,"buffer":15}],14:[function(require,module,exports) {
 var Buffer = require("buffer").Buffer;
 //  Chance.js 1.0.13
 //  http://chancejs.com
@@ -9453,7 +9453,7 @@ var Buffer = require("buffer").Buffer;
     }
 })();
 
-},{"buffer":12}],10:[function(require,module,exports) {
+},{"buffer":15}],13:[function(require,module,exports) {
 //Fetch submitted issues or the status of localStorage
 function fetchIssues() {
      "use strict";       
@@ -9474,11 +9474,11 @@ if(issues !== null) {
         issueList.innerHTML += "<div class='well'>" +
                         "<h6>Issue ID: " + id + "</h6>" +
                         "<p><span class='Label label-info'>" + status + "</span></p>" +
-                        "<h3>" + desc + "</h3>" +
+                        "<h4>" + desc + "</h4>" +
                         "<p><span class='icon icon-clock'></span> " + severity + "</p>" +
                         "<p><span class='icon icon-user'></span> " + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed("+ id +")' class='btn btn-warning'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(" + id + ")' class='btn btn-danger'>Delete</a>" +
+                        "<a href='#' onclick='setStatusClosed("+ id +")' class='button button-outline'>Close</a>" +
+                        "<a href='#' onclick='deleteIssue(" + id + ")' class='button'>Delete</a>" +
                         "</div>";
 }
 console.log(issues);
@@ -9540,7 +9540,7 @@ for(i = 0; i < issues.length; i++) {
 localStorage.setItem("issues", JSON.stringify(issues));
 fetchIssues();
 }
-},{}],3:[function(require,module,exports) {
+},{}],8:[function(require,module,exports) {
 var Chance = require('chance');
 var chance = new Chance();
 var lib = require('./lib');
@@ -9549,7 +9549,7 @@ document.querySelector('#test').innerHTML = "Testing Index.js";
 }
 hello();
 
-},{"chance":11,"./lib":10}],0:[function(require,module,exports) {
+},{"chance":14,"./lib":13}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -9567,7 +9567,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':39573/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':41643/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
@@ -9668,4 +9668,4 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id)
   });
 }
-},{}]},{},[0,3])
+},{}]},{},[0,8])

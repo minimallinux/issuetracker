@@ -18,11 +18,11 @@ if(issues !== null) {
         issueList.innerHTML += "<div class='well'>" +
                         "<h6>Issue ID: " + id + "</h6>" +
                         "<p><span class='Label label-info'>" + status + "</span></p>" +
-                        "<h3>" + desc + "</h3>" +
+                        "<h4>" + desc + "</h4>" +
                         "<p><span class='icon icon-clock'></span> " + severity + "</p>" +
                         "<p><span class='icon icon-user'></span> " + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed("+ id +")' class='btn btn-warning'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(" + id + ")' class='btn btn-danger'>Delete</a>" +
+                        "<a href='#' onclick='setStatusClosed("+ id +")' class='button button-outline'>Close</a>" +
+                        "<a href='#' onclick='deleteIssue(" + id + ")' class='button'>Delete</a>" +
                         "</div>";
 }
 console.log(issues);

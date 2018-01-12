@@ -3,41 +3,43 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>JS IssueTracker</title>
- <link rel="stylesheet" href="style.css">
+   <title>IssueTracker</title>
+   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+   <link rel="stylesheet" href="css/normalize.css">
+   <link rel="stylesheet" href="css/milligram.css">
+   <!--Fonts Icons-->
+   <link rel="stylesheet" href="style.css">
  </head>
 <body>
    <div class="container">
-      <h1>JS IssueTracker</h1>
+      <h1>IssueTracker</h1>
         <h3>Add  New Issue</h3>
         <form id="issueInputForm">
-        <div class="form-group">
+          <fieldset>
         	<label for="issueDescInput">Description</label>
-        	<input type="text" class="form-control" id="issueDescInput" placeholder="Describe the issue..." />
-        </div>
-        <div class="form-group">
+        	<input type="text" id="issueDescInput" placeholder="Describe the issue..." />
         	<label for="issueSeverityInput">Severity</label>
-        	<select id="issueSeverityInput" class="form-control">
+        	<select id="issueSeverityInput">
         	<option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
         	</select>
-        </div>
-        <div class="form-group">
-        	<label for="issueAssignedToInput">Assigned To</label>
-        	<input type="text" class="form-control" id="issueAssignedToInput" placeholder="Enter responsible..." />
-        </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+          <label for="issueAssignedToInput">Assigned To</label>
+        	<input type="text" id="issueAssignedToInput" placeholder="Enter responsible..." />
+          <input class="button-primary" type="submit" value="Add">
+        </fieldset>
        </form>
-      <div class="col-lg-12">
+       <div class="row">
+         <div class="column">
       	<div id="issueList">
         </div>
         <div id="test"></div>
       </div>
-     <footer class="footer">
-      <p>&copy; IssueTracker Inc 2018</p>
-      </footer>
-    </div> 
+      </div>
+      <footer>
+          <p>&copy; IssueTracker Inc 2018</p>
+          </footer>
+      </div>
     <script src="index.js"></script>
 </body>
 </html>
