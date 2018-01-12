@@ -15,15 +15,15 @@ if(issues !== null) {
         assignedTo = issues[i].assignedTo,
         status = issues[i].status;
         
-        issueList.innerHTML += "<div class='well'>" +
-                        "<h6>Issue ID: " + id + "</h6>" +
-                        "<p><span class='Label label-info'>" + status + "</span></p>" +
-                        "<h4>" + desc + "</h4>" +
-                        "<p><span class='icon icon-clock'></span> " + severity + "</p>" +
-                        "<p><span class='icon icon-user'></span> " + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed("+ id +")' class='button button-outline'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(" + id + ")' class='button'>Delete</a>" +
-                        "</div>";
+        issueList.innerHTML += '<div class="well">' +
+                        '<h6>Issue ID: ' + id + '</h6>' +
+                        '<p><span class="Label label-info">' + status + '</span></p>' +
+                        '<h4>' + desc + '</h4>' +
+                        '<p><span class="icon icon-clock"></span> ' + severity + '</p>' +
+                        '<p><span class="icon icon-user"></span> ' + assignedTo + '</p>' +
+                        '<a href="#" onclick="setStatusClosed(\''+ id +'\')" class="button button-outline">Close</a>' +
+                        '<a href="#"" onclick="deleteIssue(\''+ id +'\')" class="button">Delete</a>' +
+                        '</div>';
 }
 console.log(issues);
 } else {

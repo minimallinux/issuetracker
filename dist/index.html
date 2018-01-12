@@ -11,31 +11,36 @@
    <link rel="stylesheet" href="/dist/11708b954197c5ff544f7f382dbc2fdf.css">
  </head>
 <body>
-   <div class="container">
-      <h1>IssueTracker</h1>
-        <h3>Add  New Issue</h3>
+   <div class="container" id="jumbotron">
+      <h1 class="text-center">IssueTracker</h1>
+        <h3 class="text-center">Add  New Issue</h3>
         <form id="issueInputForm">
           <fieldset>
-        	<label for="issueDescInput">Description</label>
-        	<input type="text" id="issueDescInput" placeholder="Describe the issue...">
-        	<label for="issueSeverityInput">Severity</label>
-        	<select id="issueSeverityInput">
+          <label for="issueDescInput" class="text-center">Description</label>
+          <div class="input">
+        	<input type="text" id="issueDescInput" placeholder="Describe the issue..."></div>
+        	<label for="issueSeverityInput" class="text-center">Severity</label>
+        	<select id="issueSeverityInput" class="select">
         	<option value="Low">Low</option>
             <option value="Medium">Medium</option>
             <option value="High">High</option>
         	</select>
-          <label for="issueAssignedToInput">Assigned To</label>
-        	<input type="text" id="issueAssignedToInput" placeholder="Enter responsible...">
-          <input class="button-primary" type="submit" value="Add">
-        </fieldset>
-       </form>
+          <label for="issueAssignedToInput" class="text-center">Assigned To</label>
+          <input type="text" id="issueAssignedToInput" placeholder="Enter responsible...">
+          <input style="text-align:center;" class="button-primary text-center" type="submit" value="Add">
+         </fieldset>
+        </form>
+       </div>
+       <div class="container">
        <div class="row">
          <div class="column">
-      	<div id="issueList">
-        </div>
-        <div id="test"></div>
+        <div id="issueList"> 
+       </div>
+       </div>
       </div>
       </div>
+      <div id="test"></div>
+       <div class="container">
       <footer>
           <p>&copy; IssueTracker Inc 2018</p>
           </footer>

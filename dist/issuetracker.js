@@ -69,7 +69,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({15:[function(require,module,exports) {
+})({16:[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -185,7 +185,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],16:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -271,7 +271,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],17:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
@@ -2071,7 +2071,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":15,"ieee754":16,"isarray":17,"buffer":14}],13:[function(require,module,exports) {
+},{"base64-js":16,"ieee754":17,"isarray":15,"buffer":14}],12:[function(require,module,exports) {
 var Buffer = require("buffer").Buffer;
 //  Chance.js 1.0.13
 //  http://chancejs.com
@@ -9453,7 +9453,7 @@ var Buffer = require("buffer").Buffer;
     }
 })();
 
-},{"buffer":14}],11:[function(require,module,exports) {
+},{"buffer":14}],6:[function(require,module,exports) {
 //Fetch submitted issues or the status of localStorage
 function fetchIssues() {
      "use strict";       
@@ -9471,15 +9471,15 @@ if(issues !== null) {
         assignedTo = issues[i].assignedTo,
         status = issues[i].status;
         
-        issueList.innerHTML += "<div class='well'>" +
-                        "<h6>Issue ID: " + id + "</h6>" +
-                        "<p><span class='Label label-info'>" + status + "</span></p>" +
-                        "<h4>" + desc + "</h4>" +
-                        "<p><span class='icon icon-clock'></span> " + severity + "</p>" +
-                        "<p><span class='icon icon-user'></span> " + assignedTo + "</p>" +
-                        "<a href='#' onclick='setStatusClosed("+ id +")' class='button button-outline'>Close</a>" +
-                        "<a href='#' onclick='deleteIssue(" + id + ")' class='button'>Delete</a>" +
-                        "</div>";
+        issueList.innerHTML += '<div class="well">' +
+                        '<h6>Issue ID: ' + id + '</h6>' +
+                        '<p><span class="Label label-info">' + status + '</span></p>' +
+                        '<h4>' + desc + '</h4>' +
+                        '<p><span class="icon icon-clock"></span> ' + severity + '</p>' +
+                        '<p><span class="icon icon-user"></span> ' + assignedTo + '</p>' +
+                        '<a href="#" onclick="setStatusClosed(\''+ id +'\')" class="button button-outline">Close</a>' +
+                        '<a href="#"" onclick="deleteIssue(\''+ id +'\')" class="button">Delete</a>' +
+                        '</div>';
 }
 console.log(issues);
 } else {
@@ -9546,7 +9546,7 @@ var chance = new Chance();
 var lib = require('./lib');
 
 
-},{"chance":13,"./lib":11}],0:[function(require,module,exports) {
+},{"chance":12,"./lib":6}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
@@ -9564,7 +9564,7 @@ function Module() {
 module.bundle.Module = Module;
 
 if (!module.bundle.parent && typeof WebSocket !== 'undefined') {
-  var ws = new WebSocket('ws://' + window.location.hostname + ':37496/');
+  var ws = new WebSocket('ws://' + window.location.hostname + ':46599/');
   ws.onmessage = function(event) {
     var data = JSON.parse(event.data);
 
